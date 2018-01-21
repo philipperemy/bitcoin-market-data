@@ -7,6 +7,10 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
 - Total size (uncompressed): **22 GB**
 - Total number of data points: **509,354,943**
 
+<p align="center">
+  <img src="https://bitcoin.org/img/icons/opengraph.png" width="100">
+</p>
+
 ## How to generate the CSV from the compressed files
 
 GitHub requires every file to be less than 100MB. All the files have been zipped first with GZip and split in smaller files.
