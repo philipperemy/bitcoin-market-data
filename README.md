@@ -1,15 +1,67 @@
-# bitcoin-market-data
+# Bitcoin Market Data
 Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.com).
 
-0. 1coin
+- Latest update: **Sun Jan 21 9:21 AM UTC**
+- Number of supported exchanges: **119** (check list below)
+- Total size (compressed): **3 GB**
+- Total size (uncompressed): **22 GB**
+- Total number of data points: **509,354,943**
+
+## How to generate the CSV from the compressed files
+
+GitHub requires every file to be less than 100MB. All the files have been zipped first with GZip and split in smaller files.
+
+For example, the compressed version of `coincheckJPY.csv` is:
+
+```
+- bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz00
+- bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz01
+- bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz02
+- bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz03
+- bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz04
+```
+
+The reverse procedure is to:
+
+```
+cat bitcoin_market_data/coincheckJPY/* > coincheckJPY.csv.gz
+gunzip coincheckJPY.csv.gz --verbose
+ll coincheckJPY.csv
+# -rw-r--r-- 1 premy users 3.6G Jan 21 18:33 coincheckJPY.csv
+```
+
+I provided scripts to automate all the extraction from the compressed files available on Github.
+
+```
+cd scripts
+./extract.sh
+```
+
+All the files will be available in: `bitcoin_market_data_csv` at the root of this repository.
+
+
+## Update the repository with new market data
+
+```
+cd scripts
+./downloads.sh # a new folder will appear at the root of the repository called download/
+./compress_for_github.sh # new market data will be available at bitcoin_market_data.
+./push_to_github.sh # make sure you created a fork of this repository before pushing (it will generate ~289 commits).
+```
+
+Thanks in advance for contributing!
+
+## Exchanges and pairs supported
+
+0. **1coin**
     * USD
-1. abucoins
+1. **abucoins**
     * EUR
     * PLN
     * USD
-2. allcoin
+2. **allcoin**
     * USD
-3. anxhk
+3. **anxhk**
     * AUD
     * CAD
     * CHF
@@ -21,16 +73,16 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * NZD
     * SGD
     * USD
-4. aqoin
+4. **aqoin**
     * EUR
-5. b2c
+5. **b2c**
     * USD
-6. b7
+6. **b7**
     * EUR
     * USD
-7. bbm
+7. **bbm**
     * BRL
-8. bc
+8. **bc**
     * EUR
     * GBP
     * mBMAUD
@@ -42,57 +94,57 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * mPPUSD
     * mPXGAU
     * norwayNOK
-9. bcmBM
+9. **bcmBM**
     * AUD
     * GAU
     * USD
-10. bcmLR
+10. **bcmLR**
     * USD
-11. bcmMB
+11. **bcmMB**
     * USD
-12. bcmML
+12. **bcmML**
     * USD
-13. bcmPP
+13. **bcmPP**
     * USD
-14. bcmPX
+14. **bcmPX**
     * GAU
-15. bcnorway
+15. **bcnorway**
     * NOK
-16. bidxtrm
+16. **bidxtrm**
     * PLN
-17. bit121
+17. **bit121**
     * GBP
-18. bit2c
+18. **bit2c**
     * ILS
-19. bitalo
+19. **bitalo**
     * CAD
     * EUR
     * GBP
     * PLN
     * USD
-20. bitbay
+20. **bitbay**
     * EUR
     * PLN
     * USD
-21. bitbox
+21. **bitbox**
     * USD
-22. bitcash
+22. **bitcash**
     * CZK
-23. bitchange
+23. **bitchange**
     * PLN
-24. bitcurex
+24. **bitcurex**
     * EUR
     * PLN
     * USD
-25. bitfinex
+25. **bitfinex**
     * USD
-26. bitfloor
+26. **bitfloor**
     * USD
-27. bitflyer
+27. **bitflyer**
     * JPY
-28. bitkonan
+28. **bitkonan**
     * USD
-29. bitmarket
+29. **bitmarket**
     * AUD
     * EUR
     * GBP
@@ -100,45 +152,45 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * plPLN
     * RUB
     * USD
-30. bitmarketpl
+30. **bitmarketpl**
     * PLN
-31. bitmaszyna
+31. **bitmaszyna**
     * PLN
-32. bitme
+32. **bitme**
     * LTC
     * USD
-33. bitnz
+33. **bitnz**
     * NZD
-34. bitomat
+34. **bitomat**
     * PLN
-35. bitso
+35. **bitso**
     * MXN
-36. bitstamp
+36. **bitstamp**
     * EUR
     * USD
-37. bitstock
+37. **bitstock**
     * CZK
-38. bitx
+38. **bitx**
     * IDR
     * MYR
     * NGN
     * ZAR
-39. britcoin
+39. **britcoin**
     * GBP
-40. btc24
+40. **btc24**
     * EUR
     * USD
-41. btc2u
+41. **btc2u**
     * BRL
-42. btcalpha
+42. **btcalpha**
     * USD
-43. btcbox
+43. **btcbox**
     * JPY
-44. btcc
+44. **btcc**
     * USD
-45. btcde
+45. **btcde**
     * EUR
-46. btce
+46. **btce**
     * EUR
     * RUR
     * urEUR
@@ -150,9 +202,9 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * xWMR
     * xWMZ
     * xYAD
-47. btceur
+47. **btceur**
     * EUR
-48. btcex
+48. **btcex**
     * EUR
     * JPY
     * RUB
@@ -160,27 +212,27 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * WMR
     * WMZ
     * YAD
-49. btchkex
+49. **btchkex**
     * HKD
-50. btcmarkets
+50. **btcmarkets**
     * AUD
-51. btcn
+51. **btcn**
     * CNY
-52. btcoid
+52. **btcoid**
     * IDR
-53. btctrade
+53. **btctrade**
     * CNY
-54. btctree
+54. **btctree**
     * USD
-55. btcx
+55. **btcx**
     * changeRON
     * EUR
     * USD
-56. btcxchange
+56. **btcxchange**
     * RON
-57. cbx
+57. **cbx**
     * USD
-58. cex
+58. **cex**
     * btEUR
     * btJPY
     * btRUB
@@ -194,104 +246,104 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * imEUR
     * imRUB
     * imUSD
-59. chbtc
+59. **chbtc**
     * CNY
-60. chilebit
+60. **chilebit**
     * CLP
-61. coinbase
+61. **coinbase**
     * CAD
     * EUR
     * GBP
     * USD
-62. coincheck
+62. **coincheck**
     * JPY
-63. coinfalcon
+63. **coinfalcon**
     * EUR
-64. coinfloor
+64. **coinfloor**
     * GBP
-65. coinnest
+65. **coinnest**
     * KRW
-66. coinsbank
+66. **coinsbank**
     * EUR
     * GBP
     * RUB
     * USD
-67. cotr
+67. **cotr**
     * USD
-68. cryptox
+68. **cryptox**
     * AUD
     * USD
-69. crytr
+69. **crytr**
     * EUR
     * USD
-70. exchb
+70. **exchb**
     * USD
-71. exmo
+71. **exmo**
     * EUR
     * RUB
     * USD
-72. fbtc
+72. **fbtc**
     * EUR
     * USD
-73. fisco
+73. **fisco**
     * JPY
-74. flucto
+74. **flucto**
     * PLN
-75. foxbit
+75. **foxbit**
     * BRL
-76. fresh
+76. **fresh**
     * EUR
     * PLN
     * USD
-77. fybse
+77. **fybse**
     * SEK
-78. fybsg
+78. **fybsg**
     * SGD
-79. getbtc
+79. **getbtc**
     * USD
-80. global
+80. **global**
     * EUR
     * GBP
     * PLN
     * USD
-81. hitbtc
+81. **hitbtc**
     * EUR
     * USD
-82. ibwt
+82. **ibwt**
     * EUR
     * GBP
     * LTC
     * USD
-83. icbit
+83. **icbit**
     * USD
-84. imcex
+84. **imcex**
     * EUR
     * RUB
     * USD
-85. indacoin
+85. **indacoin**
     * USD
-86. intrsng
+86. **intrsng**
     * EUR
     * GBP
     * PLN
     * USD
-87. itbit
+87. **itbit**
     * EUR
     * SGD
     * USD
-88. jubi
+88. **jubi**
     * CNY
-89. just
+89. **just**
     * EUR
     * LTC
     * NOK
     * USD
     * XRP
-90. korbit
+90. **korbit**
     * KRW
-91. kptn
+91. **kptn**
     * SEK
-92. kraken
+92. **kraken**
     * CAD
     * EUR
     * GBP
@@ -301,9 +353,9 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * NMC
     * USD
     * XRP
-93. lake
+93. **lake**
     * USD
-94. localbtc
+94. **localbtc**
     * ARS
     * AUD
     * BRL
@@ -328,12 +380,12 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * VEF
     * VND
     * ZAR
-95. lybit
+95. **lybit**
     * CAD
     * USD
-96. mrcd
+96. **mrcd**
     * BRL
-97. mtgox
+97. **mtgox**
     * AUD
     * CAD
     * CHF
@@ -351,23 +403,23 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * SGD
     * THB
     * USD
-98. nevbit
+98. **nevbit**
     * PLN
-99. okcoin
+99. **okcoin**
     * USD
-100. remitano
+100. **remitano**
     * VND
-101. ripple
+101. **ripple**
     * EUR
     * USD
     * XRP
-102. rmbtb
+102. **rmbtb**
     * CNY
-103. rock
+103. **rock**
     * EUR
     * SLL
     * USD
-104. ruxum
+104. **ruxum**
     * AUD
     * CHF
     * EUR
@@ -383,11 +435,11 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * UAH
     * USD
     * ZAR
-105. snwcn
+105. **snwcn**
     * XRP
-106. surbtc
+106. **surbtc**
     * VEF
-107. th
+107. **th**
     * ARS
     * AUD
     * BRL
@@ -412,30 +464,30 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
     * SEK
     * USD
     * ZAR
-108. thLR
+108. **thLR**
     * USD
-109. urdubit
+109. **urdubit**
     * PKR
-110. vbtc
+110. **vbtc**
     * VND
-111. vcx
+111. **vcx**
     * EUR
     * USD
-112. virtex
+112. **virtex**
     * CAD
-113. virwox
+113. **virwox**
     * SLL
-114. wbx
+114. **wbx**
     * AUD
-115. weex
+115. **weex**
     * AUD
     * CAD
     * USD
-116. wex
+116. **wex**
     * EUR
     * RUB
     * USD
-117. zaif
+117. **zaif**
     * JPY
-118. zyado
+118. **zyado**
     * EUR
