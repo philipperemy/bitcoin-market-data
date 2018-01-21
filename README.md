@@ -13,7 +13,9 @@ Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.
 
 ## How to generate the CSV from the compressed files
 
-GitHub requires every file to be less than 100MB. All the files have been zipped first with GZip and split in smaller files.
+GitHub requires every file to be less than 100MB. 
+
+All the files have been zipped first with GZip and split in smaller files.
 
 For example, the compressed version of `coincheckJPY.csv` is:
 
@@ -25,7 +27,7 @@ For example, the compressed version of `coincheckJPY.csv` is:
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz04
 ```
 
-The reverse procedure is to:
+The reverse procedure (extraction) is:
 
 ```
 cat bitcoin_market_data/coincheckJPY/* > coincheckJPY.csv.gz
@@ -41,7 +43,7 @@ cd scripts
 ./extract.sh
 ```
 
-All the files will be available in: `bitcoin_market_data_csv` at the root of this repository.
+All the files will be available in `bitcoin_market_data_csv` at the root of this repository, after the extraction is complete.
 
 
 ## Update the repository with new market data
