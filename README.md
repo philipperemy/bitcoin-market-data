@@ -19,17 +19,15 @@ All the files have been zipped first with GZip and split in smaller files.
 
 For example, the compressed version of `coincheckJPY.csv` is:
 
-```
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz00
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz01
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz02
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz03
 - bitcoin_market_data/coincheckJPY/coincheckJPY.csv.gz04
-```
 
 The reverse procedure (extraction) is:
 
-```
+```bash
 cat bitcoin_market_data/coincheckJPY/* > coincheckJPY.csv.gz
 gunzip coincheckJPY.csv.gz --verbose
 ll coincheckJPY.csv
@@ -38,7 +36,7 @@ ll coincheckJPY.csv
 
 I provided scripts to automate all the extraction from the compressed files available on Github.
 
-```
+```bash
 cd scripts
 ./extract.sh
 ```
@@ -48,7 +46,7 @@ All the files will be available in `bitcoin_market_data_csv` at the root of this
 
 ## Update the repository with new market data
 
-```
+```bash
 cd scripts
 ./downloads.sh # a new folder will appear at the root of the repository called download/
 ./compress_for_github.sh # new market data will be available at bitcoin_market_data.
