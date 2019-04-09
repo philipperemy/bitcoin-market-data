@@ -1,7 +1,7 @@
 # Bitcoin Market Data
-Largest up-to-date tick market data for Bitcoin (mirror server of bitcoincharts.com).
+Largest tick market data for Bitcoin (mirror server of bitcoincharts.com).
 
-- Latest update: **Sun Jan 21 9:21 AM UTC**
+- Latest update: **2018 Sun Jan 21 9:21 AM UTC**
 - Number of supported exchanges: **119** (check list below)
 - Total size (compressed): **3 GB**
 - Total size (uncompressed): **22 GB**
